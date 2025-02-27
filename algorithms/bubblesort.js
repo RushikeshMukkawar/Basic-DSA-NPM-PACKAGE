@@ -1,5 +1,3 @@
-const mergesort = require("./mergesort");
-
 function bubblesort(arr) {
     let n = arr.length;
     // this function applied adjacent comparisons and immediate swaps with adjacent element
@@ -23,4 +21,4 @@ let arr = [10,11,12];
 bubblesort(arr);
 console.log(arr);
 
-module.exports = mergesort;
+module.exports = bubblesort;
