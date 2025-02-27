@@ -38,9 +38,4 @@ function quicksort(arr) {
     return f(arr, 0, arr.length - 1);
 }
 
-let arr = [5,4,3,2,1, 8,9 , 0, -2, 3, 5];
-quicksort(arr);
-console.log(arr);
-
-
-module.exports = quicksort; 
+module.exports = quicksort;

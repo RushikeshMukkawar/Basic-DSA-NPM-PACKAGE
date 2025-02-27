@@ -1,7 +1,8 @@
-class MaxHeap {
+class Heap {
     #arr;
-    constructor() {
+    constructor(cmp) {
         this.#arr = [];
+        this.comparator = cmp; // function
     }
     swap(i, j) {
         let temp = this.#arr[i];
@@ -15,7 +16,7 @@ class MaxHeap {
          */
         while(idx > 0) { // if idx is 0 you dont have a parent
             let pi = Math.floor((idx - 1) / 2);
-            if(this.#arr[idx] > this.#arr[pi]) {
+            if(this.comparator(this.#arr[idx] , this.#arr[pi])) {
                 // swap
                this.swap(idx, pi);
             } else {
@@ -34,11 +35,11 @@ class MaxHeap {
             let left = 2*idx+1;
             let right = 2*idx+2;
             let result = idx; // assume that max element is the root;
-            if(left < this.#arr.length && this.#arr[left] > this.#arr[result]) {
+            if(left < this.#arr.length && this.comparator(this.#arr[left] , this.#arr[result])) {
                 // if left child exists and left node is bigger than the last assumed result
                 result = left;  // make left child the new result candidate
             }
-            if(right < this.#arr.length && this.#arr[right] > this.#arr[result]) {
+            if(right < this.#arr.length && this.comparator(this.#arr[right] , this.#arr[result])) {
                 // if right child exists and right node is bigger than the last assumed result
                 result = right;
             }
@@ -85,4 +86,4 @@ class MaxHeap {
     }
 }
 
-module.exports = MaxHeap;
+module.exports = Heap;
